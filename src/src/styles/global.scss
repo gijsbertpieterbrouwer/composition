@@ -1,0 +1,261 @@
+@import "theme";
+
+.text-selectable {
+  user-select: text;
+
+  * {
+    user-select: text;
+  }
+}
+
+strong {
+  font-weight: 600;
+}
+
+em {
+  font-style: italic;
+}
+
+select {
+  border: solid 1px #85847e;
+  padding: 6px 10px;
+  box-sizing: border-box;
+  height: 32px;
+
+  &:focus {
+    border: solid 1px #85847e;
+  }
+}
+
+.todo {
+  color: red;
+  font-weight: 600;
+
+  &::before {
+    content: "TODO: ";
+  }
+
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+.app {
+  transition: background-color 250ms ease;
+  transition: color 250ms ease;
+}
+
+.subdued {
+  opacity: 0.6;
+}
+
+*::-webkit-scrollbar,
+*::-webkit-scrollbar-thumb {
+  width: 26px;
+  border-radius: 13px;
+  background-clip: padding-box;
+  border: 10px solid transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  box-shadow: inset 0 0 0 10px rgba(155, 155, 155, 0.7);
+}
+
+input[type="checkbox"] {
+  appearance: checkbox !important;
+  box-sizing: border-box;
+}
+
+input[type="color"] {
+  background: transparent;
+}
+
+
+/********** Range Input Styles **********/
+/*Range Reset*/
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  background: transparent;
+  cursor: pointer;
+  width: 15rem;
+}
+
+/* Removes default focus */
+input[type="range"]:focus {
+  outline: none;
+}
+
+/********** COLOR Input Styles **********/
+input[type="color"] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width: 240px;
+  height: 30px;
+  background-color: transparent;
+  border: solid 1px #e2e2e277;
+  border-radius: 8px;
+  cursor: pointer;
+  padding: 1px;
+}
+
+input[type="color"]::-webkit-color-swatch {
+  border-radius: 4px;
+  border: none;
+
+}
+
+input[type="color"]::-moz-color-swatch {
+  border-radius: 4px;
+  border: none;
+}
+
+
+
+/***** Chrome, Safari, Opera and Edge Chromium styles *****/
+/* slider track */
+input[type="range"]::-webkit-slider-runnable-track {
+  background-color: #e2e2e2;
+  border-radius: 0.5rem;
+  height: 0.3rem;
+}
+
+/* slider thumb */
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  /* Override default look */
+  appearance: none;
+  margin-top: -6px;
+  /* Centers thumb on the track */
+
+  /*custom styles*/
+  background-color: #000000;
+  height: 1rem;
+  width: 1rem;
+  border-radius: 20px;
+}
+
+input[type="range"]:focus::-webkit-slider-thumb {
+  border: 1px solid #e2e2e2;
+  outline: 3px solid #e2e2e2;
+  outline-offset: 0.125rem;
+}
+
+
+/******** Firefox styles ********/
+/* slider track */
+input[type="range"]::-moz-range-track {
+  background-color: #e2e2e2;
+  border-radius: 0.5rem;
+  height: 0.5rem;
+}
+
+/* slider thumb */
+input[type="range"]::-moz-range-thumb {
+  border: none;
+  /*Removes extra border that FF applies*/
+  border-radius: 0;
+  /*Removes default border-radius that FF applies*/
+
+  /*custom styles*/
+  background-color: #333333;
+  height: 2rem;
+  width: 1rem;
+}
+
+input[type="range"]:focus::-moz-range-thumb {
+  border: 1px solid #e2e2e2;
+  outline: 3px solid #e2e2e2;
+  outline-offset: 0.125rem;
+}
+
+.styledList {
+  list-style-type: disc;
+
+}
+
+
+.styledTable, .styled-table {
+  font-size: 0.8em;
+  border-collapse: collapse;
+  width: 100%;
+  color: var(--c-contrast);
+  user-select: text;
+
+  td,
+  th {
+    border: 1px solid var(--border-color);
+    padding: 8px;
+    font-weight: 500;
+    vertical-align: middle;
+
+    &.numeric {
+      text-align: right;
+    }
+  }
+
+  tr.warning {
+    color: $warning;
+  }
+
+
+  tbody {
+
+
+    tr:first-child td:first-child {
+      border-top-left-radius: 8px;
+    }
+
+    tr:first-child td:last-child {
+      border-top-right-radius: 8px;
+    }
+
+    tr:last-child td:first-child {
+      border-bottom-left-radius: 8px;
+    }
+
+    tr:last-child td:last-child {
+      border-bottom-right-radius: 8px;
+    }
+
+    tr {
+      background-color: var(--c-base-100);
+
+      &.header {
+        td {
+          font-weight: 600;
+          font-size: 1.5em;
+          // border-top: solid 1px var(--c-primary);
+        }
+      }
+    }
+
+
+
+    tr:hover {
+      background-color: var(--c-base-200);
+    }
+  }
+
+  &.odd-even {
+    tbody {
+      tr:nth-child(even) {
+        background-color: var(--table-rows-odd-back);
+
+        &:hover {
+          background-color: var(--c-base-200);
+        }
+      }
+    }
+  }
+
+  th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+
+    color: var(--c-contrast);
+  }
+
+
+}

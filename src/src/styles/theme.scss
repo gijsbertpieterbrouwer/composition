@@ -1,0 +1,781 @@
+$black: #0b0a0a;
+$grey900: #42413c;
+$grey800: #605f5b;
+$grey700: #85847e;
+$grey600: #aeada4;
+
+$grey400: #c9c8c1;
+$grey300: #dbdad5;
+$grey200: #edece8;
+$grey100: #f8f8f6;
+$white: #ffffff;
+
+$dark-bg: #191628;
+$light-bg: #fff;
+
+$brand-700: #13a1ce;
+$brand: #14b0e1;
+$brand100: #e0f0f5;
+
+$brand2: #ffc44c;
+
+$brand-dark-grey: #0f0d18;
+$sunset: #2b2739;
+$dark-blue: #191528;
+
+$hover-item: #f8f8f8;
+$highlight-item: #81c4d8;
+
+$delete: #e62e14;
+
+$error: #e62e14;
+$warning: #fe9a10;
+$success: #4eb03b;
+$success100: #8dbe83;
+
+$palette-red: #e45744;
+$palette-orange: #f7a636;
+$palette-yellow: #eacb01;
+$palette-green: #5dbf4a;
+$palette-teal: #17d3a1;
+$palette-aqua: #03afc9;
+$palette-blue: #1080c1;
+$palette-purple: #9669b5;
+$palette-pink: #f37cc5;
+$palette-grey: $grey800;
+$palette-unknown: $grey400;
+
+$code-black: $black;
+$code-grey: $grey800;
+$code-green: #829c59;
+$code-orange: #cc7447;
+
+$text-size-regular: 12px;
+
+@mixin font-inter {
+  font-family: "Inter", sans-serif;
+}
+
+@mixin font-outfit {
+  font-family: "Outfit", sans-serif;
+  font-style: normal;
+}
+
+@mixin center-content {
+  display: grid;
+  place-content: center;
+}
+
+
+@mixin fade($fade, $timing, $length, $count, $fill) {
+  animation: $fade $timing $length;
+  animation-iteration-count: $count;
+  animation-fill-mode: $fill;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+@mixin gradient-bg {
+  background:
+    linear-gradient(var(--c-evening-twilight), transparent), linear-gradient(90deg, $success100, transparent), linear-gradient(-90deg, var(--c-sky-neon), transparent);
+
+  background-blend-mode: screen;
+}
+
+@mixin gradient-funky-bg {
+  background:
+    linear-gradient(var(--c-yellow-neon),
+      transparent),
+    linear-gradient(90deg,
+      var(--c-pink-neon),
+      transparent),
+    linear-gradient(-90deg,
+      var(--c-sky-neon),
+      transparent);
+
+  background-blend-mode: screen;
+}
+
+@mixin gradient-funky2-bg {
+  background:
+    linear-gradient(var(--c-pink-neon),
+      transparent),
+    linear-gradient(90deg,
+      var(--c-purple-neon),
+      transparent),
+    linear-gradient(-90deg,
+      var(--c-yellow-neon),
+      transparent);
+
+  background-blend-mode: screen;
+}
+
+@mixin wizard-bg {
+  background: conic-gradient(from 90deg, rgb(46, 73, 50) 0deg, rgb(46, 73, 50) 27.692deg, rgb(54, 80, 59) 27.692deg, rgb(54, 80, 59) 55.385deg, rgb(62, 87, 68) 55.385deg, rgb(62, 87, 68) 83.077deg, rgb(70, 94, 77) 83.077deg, rgb(70, 94, 77) 110.769deg, rgb(77, 101, 85) 110.769deg, rgb(77, 101, 85) 138.462deg, rgb(84, 107, 92) 138.462deg, rgb(84, 107, 92) 166.154deg, rgb(90, 113, 99) 166.154deg, rgb(90, 113, 99) 193.846deg, rgb(95, 119, 104) 193.846deg, rgb(95, 119, 104) 221.538deg, rgb(99, 124, 109) 221.538deg, rgb(99, 124, 109) 249.231deg, rgb(102, 128, 112) 249.231deg, rgb(102, 128, 112) 276.923deg, rgb(104, 131, 114) 276.923deg, rgb(104, 131, 114) 304.615deg, rgb(104, 134, 115) 304.615deg, rgb(104, 134, 115) 332.308deg, rgb(103, 136, 115) 332.308deg, rgb(103, 136, 115) 360deg);
+  background-blend-mode: screen;
+
+}
+
+
+@mixin gradient-bg-non-transparent {
+  background: linear-gradient(var(--c-evening-twilight), black), linear-gradient(90deg, $success100, black), linear-gradient(-90deg, var(--c-sky-neon), black);
+  background-blend-mode: screen;
+}
+
+@mixin neon-bg {
+  &.color-violet {
+    color: var(--c-morning-light);
+    background-color: var(--c-violet-neon);
+  }
+
+  &.color-blue {
+    color: var(--c-morning-light);
+    background-color: var(--c-blue-neon);
+  }
+
+  &.color-green {
+    color: var(--c-morning-light);
+    background-color: var(--c-green-neon);
+  }
+
+  &.color-grey {
+    color: var(--c-morning-light);
+    letter-spacing: 0.02em; // increase legibility for light font
+    background-color: var(--c-grey-neon);
+  }
+
+  &.color-orange {
+    color: var(--c-morning-light);
+    background-color: var(--c-orange-neon);
+  }
+
+  &.color-pink {
+    color: var(--c-morning-light);
+    background-color: var(--c-pink-neon);
+  }
+
+  &.color-purple {
+    color: var(--c-morning-light);
+    letter-spacing: 0.02em; // increase legibility for light font
+    background-color: var(--c-purple-neon);
+  }
+
+  &.color-red {
+    color: var(--c-morning-light);
+    background-color: var(--c-red-neon);
+  }
+
+  &.color-teal {
+    color: var(--c-morning-light);
+    background-color: var(--c-sky-neon);
+  }
+
+  &.color-yellow {
+    color: var(--c-evening-dark);
+    background-color: var(--c-yellow-neon);
+  }
+}
+
+@function c($key) {
+  @return var(--c-#{$key});
+}
+
+:root {
+  /* theme colors */
+  --c-evening-dark-hsl: 251, 30%, 7%;
+  --c-evening-dark: hsl(var(--c-evening-dark-hsl));
+  --c-evening-night: #191528;
+  --c-evening-dusk: #201d2b;
+  --c-evening: #272530;
+  --c-evening-sunset: #2b2739;
+  --c-evening-twilight: #3f3b4f;
+
+
+  --c-morning-afternoon: #b3b1b1;
+  --c-morning-midday: #cacacd;
+  --c-morning-sunrise: #e0e0e1;
+  --c-morning-dawn: #eeedee;
+  --c-morning-day: #f6f6f6;
+  --c-morning-light-hsl: 0, 0%, 100%;
+  --c-morning-light: hsl(var(--c-morning-light-hsl));
+
+  --c-red-day: #f69393;
+  --c-red-neon: #e7404c;
+  --c-red-night: #9f0f0f;
+
+  --c-orange-day: #f8ac8b;
+  --c-orange-neon: #ea702a;
+  --c-orange-night: #c1420b;
+
+  --c-yellow-day: #f5d975;
+  --c-yellow-neon: #f3c62d;
+  --c-yellow-night: #ae920a;
+
+  --c-green-day: #33a073;
+  --c-green-neon: #4BCE97;
+  --c-green-night: #164B35;
+
+  --c-lime-day: #b2e189;
+  --c-lime-neon: #7bc639;
+  --c-lime-night: #447a15;
+
+
+  --c-sky-day: #6CC3E0;
+  --c-sky-neon: #206A83;
+  --c-sky-night: #164555;
+
+  --c-blue-day: #8fdcf5;
+  --c-blue-neon: #14b0e1;
+  --c-blue-night: #0d628c;
+
+  --c-purple-day: #c9a6f7;
+  --c-purple-neon: #873ad4;
+  --c-purple-night: #4d1c7d;
+
+  --c-violet-day: #efb8ef;
+  --c-violet-neon: #d459d4;
+  --c-violet-night: #7d1c7d;
+
+  --c-pink-day: #f6a2c4;
+  --c-pink-neon: #e25092;
+  --c-pink-night: #ab2166;
+
+  --c-grey-day: #c9c7d1;
+  --c-grey-neon: #736e87;
+  --c-grey-night: #43404f;
+
+
+  /* utility colors */
+  --c-primary: var(--c-yellow-neon);
+  --c-secondary: var(--c-blue-neon);
+}
+
+/*
+THEMING
+- The default themes (midnight and daylight) are based on a shared palette: the named theme colors.
+- The palette colors can be used directly but will then not change per theme. The same goes for the utility colors.
+- All colors are prefixed with a c to allow using css variables for more than just themes.
+- Themes expose a base color (white for a light theme, black for a dark theme) and some base variants (100-400)
+- Themes expose a contrast color: the opposite of the base color (black for a light theme, white for a dark theme)
+*/
+
+@mixin font-inter {
+  font-family: "Inter", sans-serif;
+}
+
+@mixin font-outfit {
+  font-family: "Outfit", sans-serif;
+  font-style: normal;
+}
+
+@mixin center-content {
+  display: grid;
+  place-content: center;
+}
+
+@mixin gradient-bg {
+  background:
+    linear-gradient(var(--c-evening-twilight),
+      transparent),
+    linear-gradient(90deg,
+      $success100,
+      transparent),
+    linear-gradient(-90deg,
+      var(--c-sky-neon),
+      transparent);
+
+  background-blend-mode: screen;
+}
+
+@mixin gradient-funky-bg {
+  background:
+    linear-gradient(var(--c-yellow-neon),
+      transparent),
+    linear-gradient(90deg,
+      var(--c-pink-neon),
+      transparent),
+    linear-gradient(-90deg,
+      var(--c-sky-neon),
+      transparent);
+
+  background-blend-mode: screen;
+}
+
+@mixin gradient-funky2-bg {
+  background:
+    linear-gradient(var(--c-pink-neon),
+      transparent),
+    linear-gradient(90deg,
+      var(--c-purple-neon),
+      transparent),
+    linear-gradient(-90deg,
+      var(--c-yellow-neon),
+      transparent);
+
+  background-blend-mode: screen;
+}
+
+@mixin neon-bg-outline {
+
+  //green
+  &.color-subtle-green {
+    outline-color: var(--c-green-night);
+  }
+
+  &.color-green {
+    outline-color: var(--c-green-neon);
+  }
+
+  &.color-bold-green {
+    outline-color: var(--c-green-day);
+  }
+
+
+  //lime
+  &.color-subtle-lime {
+    outline-color: var(--c-lime-night);
+  }
+
+  &.color-lime {
+    outline-color: var(--c-lime-neon);
+  }
+
+  &.color-bold-lime {
+    outline-color: var(--c-lime-day);
+  }
+
+
+  //yellow
+  &.color-subtle-yellow {
+    outline-color: var(--c-yellow-night);
+  }
+
+  &.color-yellow {
+    outline-color: var(--c-yellow-neon);
+  }
+
+  &.color-bold-yellow {
+    outline-color: var(--c-yellow-day);
+  }
+
+  //orange
+  &.color-subtle-orange {
+    outline-color: var(--c-orange-night);
+  }
+
+  &.color-orange {
+    outline-color: var(--c-orange-neon);
+  }
+
+  &.color-bold-orange {
+    outline-color: var(--c-orange-day);
+  }
+
+
+  //red
+  &.color-subtle-red {
+    outline-color: var(--c-red-night);
+  }
+
+  &.color-red {
+    outline-color: var(--c-red-neon);
+  }
+
+  &.color-bold-red {
+    outline-color: var(--c-red-day);
+  }
+
+
+  //blue
+  &.color-subtle-blue {
+    outline-color: var(--c-blue-night);
+  }
+
+  &.color-blue {
+    outline-color: var(--c-blue-neon);
+  }
+
+  &.color-bold-blue {
+    outline-color: var(--c-blue-day);
+  }
+
+
+  //purple
+  &.color-subtle-purple {
+    outline-color: var(--c-purple-night);
+  }
+
+  &.color-purple {
+    outline-color: var(--c-purple-neon);
+  }
+
+  &.color-bold-purple {
+    outline-color: var(--c-purple-day);
+  }
+
+
+
+  //sky
+  &.color-subtle-sky {
+    outline-color: var(--c-sky-night);
+  }
+
+  &.color-sky {
+    outline-color: var(--c-sky-neon);
+  }
+
+  &.color-bold-sky {
+    outline-color: var(--c-sky-day);
+  }
+
+
+  //pink
+  &.color-subtle-pink {
+    outline-color: var(--c-pink-night);
+  }
+
+  &.color-pink {
+    outline-color: var(--c-pink-neon);
+  }
+
+  &.color-bold-pink {
+    outline-color: var(--c-pink-day);
+  }
+
+
+  //black
+  &.color-subtle-black {
+    outline-color: var(--c-grey-night);
+  }
+
+  &.color-black {
+    outline-color: var(--c-grey-neon);
+  }
+
+  &.color-bold-black {
+    outline-color: var(--c-grey-day);
+  }
+
+
+
+
+
+
+  &.color-grey {}
+}
+
+@mixin neon-bg {
+
+  //green
+  &.color-subtle-green {
+    color: var(--c-morning-light);
+    background-color: var(--c-green-night);
+  }
+
+  &.color-green {
+    color: var(--c-morning-light);
+    background-color: var(--c-green-neon);
+  }
+
+  &.color-bold-green {
+    color: var(--c-evening-dark);
+    background-color: var(--c-green-day);
+  }
+
+
+  //lime
+  &.color-subtle-lime {
+    color: var(--c-morning-light);
+    background-color: var(--c-lime-night);
+  }
+
+  &.color-lime {
+    color: var(--c-morning-light);
+    background-color: var(--c-lime-neon);
+  }
+
+  &.color-bold-lime {
+    color: var(--c-evening-dark);
+    background-color: var(--c-lime-day);
+  }
+
+
+  //yellow
+  &.color-subtle-yellow {
+    color: var(--c-morning-light);
+    background-color: var(--c-yellow-night);
+  }
+
+  &.color-yellow {
+    color: var(--c-evening-dark);
+    background-color: var(--c-yellow-neon);
+  }
+
+  &.color-bold-yellow {
+    color: var(--c-evening-dark);
+    background-color: var(--c-yellow-day);
+  }
+
+  //orange
+  &.color-subtle-orange {
+    color: var(--c-morning-light);
+    background-color: var(--c-orange-night);
+  }
+
+  &.color-orange {
+    color: var(--c-morning-light);
+    background-color: var(--c-orange-neon);
+  }
+
+  &.color-bold-orange {
+    color: var(--c-evening-dark);
+    background-color: var(--c-orange-day);
+  }
+
+
+  //red
+  &.color-subtle-red {
+    color: var(--c-morning-light);
+    background-color: var(--c-red-night);
+  }
+
+  &.color-red {
+    color: var(--c-morning-light);
+    background-color: var(--c-red-neon);
+  }
+
+  &.color-bold-red {
+    color: var(--c-evening-dark);
+    background-color: var(--c-red-day);
+  }
+
+
+  //blue
+  &.color-subtle-blue {
+    color: var(--c-morning-light);
+    background-color: var(--c-blue-night);
+  }
+
+  &.color-blue {
+    color: var(--c-morning-light);
+    background-color: var(--c-blue-neon);
+  }
+
+  &.color-bold-yellow {
+    color: var(--c-evening-dark);
+    background-color: var(--c-yellow-day);
+  }
+
+
+  //purple
+  &.color-subtle-purple {
+    color: var(--c-morning-light);
+    background-color: var(--c-purple-night);
+  }
+
+  &.color-purple {
+    color: var(--c-morning-light);
+    background-color: var(--c-purple-neon);
+  }
+
+  &.color-bold-purple {
+    color: var(--c-evening-dark);
+    background-color: var(--c-purple-day);
+  }
+
+  //blue
+  &.color-subtle-blue {
+    color: var(--c-morning-light);
+    background-color: var(--c-blue-night);
+  }
+
+  &.color-blue {
+    color: var(--c-morning-light);
+    background-color: var(--c-blue-neon);
+  }
+
+  &.color-bold-blue {
+    color: var(--c-evening-dark);
+    background-color: var(--c-blue-day);
+  }
+
+
+  //sky
+  &.color-subtle-sky {
+    color: var(--c-morning-light);
+    background-color: var(--c-sky-night);
+  }
+
+  &.color-sky {
+    color: var(--c-morning-light);
+    background-color: var(--c-sky-neon);
+  }
+
+  &.color-bold-sky {
+    color: var(--c-evening-dark);
+    background-color: var(--c-sky-day);
+  }
+
+
+  //pink
+  &.color-subtle-pink {
+    color: var(--c-morning-light);
+    background-color: var(--c-pink-night);
+  }
+
+  &.color-pink {
+    color: var(--c-morning-light);
+    background-color: var(--c-pink-neon);
+  }
+
+  &.color-bold-pink {
+    color: var(--c-evening-dark);
+    background-color: var(--c-pink-day);
+  }
+
+
+  //black
+  &.color-subtle-black {
+    color: var(--c-morning-light);
+    background-color: var(--c-grey-night);
+  }
+
+  &.color-black {
+    color: var(--c-morning-light);
+    background-color: var(--c-grey-neon);
+  }
+
+  &.color-bold-black {
+    color: var(--c-evening-dark);
+    background-color: var(--c-grey-day);
+  }
+
+
+
+
+
+  &.color-grey {
+    color: var(--c-morning-light);
+    letter-spacing: 0.02em; // increase legibility for light font
+    background-color: var(--c-grey-neon);
+  }
+
+
+}
+
+.theme-midnight {
+  --c-base: var(--c-evening-sunset);
+  --c-base-hsl: var(--c-evening-sunset);
+  --c-base-100: var(--c-evening-night);
+  --c-base-200: var(--c-evening-sunset);
+  --c-base-300: var(--c-evening-dusk);
+  --c-base-400: var(--c-evening-night);
+  --c-base-500: var(--c-evening-dark);
+
+
+  --c-contrast: var(--c-morning-light);
+  --c-contrast-hsl: var(--c-morning-light-hsl);
+  --c-contrast-200: var(--c-grey-neon);
+
+  /* utility colors */
+  --c-primary: var(--c-yellow-neon);
+  --c-secondary: var(--c-blue-neon);
+
+  --c-app-background: var(--c-base-100);
+
+  //background: var(--c-base-100);
+  color: var(--c-contrast);
+
+  /* Exceptions */
+  --c-yellow-text: var(--c-yellow-neon);
+  --c-flow-node: var(--c-evening-dusk);
+  --c-flow-node-selected: var(--c-evening-night);
+  --c-flow-actions: var(--c-evening-sunset);
+  --c-flow-node-connector: var(--c-morning-light);
+  --c-menu-background: var(--c-evening-dark);
+  --c-menu-border: var(--c-evening-dark);
+
+  //PANELS
+  --c-panel-contrast: var(--c-contrast);
+  --c-panel-background: var(--c-evening-twilight);
+  --c-panel-base: var(--c-evening-sunset);
+  --c-panel-base-hsl: var(--c-evening-sunset);
+  --c-panel-base-100: var(--c-evening-night);
+  --c-panel-base-200: var(--c-evening-sunset);
+  --c-panel-base-300: var(--c-evening-dusk);
+  --c-panel-base-400: var(--c-evening-night);
+  --c-panel-base-500: var(--c-evening-dark);
+
+  --c-editor-border: var(--c-evening-twilight);
+  --c-ticket-message-border: var(--c-contrast-200);
+  --c-ticket-message-background: var(--c-base);
+  --c-ticket-timeline: var(--c-contrast-200);
+
+}
+
+.theme-daylight {
+  --c-base-hsl: var(--c-morning-light-hsl);
+  --c-base: var(--c-morning-light);
+  --c-base-100: var(--c-morning-day);
+  --c-base-200: var(--c-morning-dawn);
+  --c-base-300: var(--c-morning-sunrise);
+  --c-base-400: var(--c-morning-midday);
+  --c-base-500: var(--c-morning-afternoon);
+  --c-contrast: var(--c-evening-dusk);
+  --c-contrast-hsl: var(--c-evening-dark-hsl);
+  --c-contrast-200: var(--c-evening-twilight);
+
+  /* utility colors */
+  --c-primary: var(--c-yellow-neon);
+  --c-secondary: var(--c-blue-neon);
+
+  --c-app-background: var(--c-base-100);
+  --background: var(--c-base-100);
+  color: var(--c-contrast);
+
+  /* Exceptions */
+  --c-yellow-text: var(--c-contrast);
+  --c-flow-node: var(--c-evening-night);
+  --c-flow-node-selected: var(--c-evening-sunset);
+  --c-flow-actions: var(--c-morning-light);
+  --c-flow-node-connector: var(--c-morning-light);
+  --c-menu-background: var(--c-morning-day);
+  --c-menu-border: var(--c-base-400);
+
+  //PANELS
+  --c-panel-contrast: var(--c-morning-light);
+  --c-panel-background: var(--c-evening-sunset);
+  --c-panel-base: var(--c-evening-sunset);
+  --c-panel-base-hsl: var(--c-evening-sunset);
+
+  --c-panel-base-100: var(--c-evening-twilight);
+  --c-panel-base-200: var(--c-evening-dusk);
+  --c-panel-base-300: var(--c-evening-night);
+  --c-panel-base-400: var(--c-evening-dark);
+  --c-panel-base-500: var(--c-evening-night);
+
+
+  --c-editor-border: var(--c-morning-dawn);
+  --c-ticket-message-border: var(--c-base-200);
+  --c-ticket-message-background: var(--c-morning-dawn);
+  --c-ticket-timeline: var(--c-base-200);
+
+}
